@@ -1,0 +1,119 @@
+
+
+  /* =========================================
+     BASE STYLES (MOBILE FIRST)
+     These styles apply to small screens first.
+     Larger screens are handled later with media queries.
+     ========================================= */
+
+  /* Reset default spacing and set global text settings */
+  body {
+    margin: 0;                                  /* Removes browser default margin */
+    font-family: Arial, Helvetica, sans-serif;  /* Clean, readable sans-serif stack */
+    line-height: 1.6;                           /* Improves text readability */
+    background: #f0f0f0;                         /* Light gray base background */
+  }
+
+  /* Container centers content and limits max width */
+  .container {
+    max-width: 1100px;     /* Stops content stretching too wide on big screens */
+    margin: 0 auto;     /* 40px top/bottom, auto left/right = centered */
+    padding: 20px;         /* Internal spacing */
+  }
+
+  /* Main heading */
+  h1 {
+    text-align: center;    /* Centers the heading */
+    margin: 0 0 8px;       /* No top margin, small space below */
+  }
+
+  /* Lead paragraph */
+  p.lead {
+    text-align: center;    /* Centers the intro text */
+    margin: 0 0 18px;      /* Space below paragraph */
+    color: #333;           /* Softer than pure black, still high contrast */
+  }
+
+  /* =========================================
+     RESPONSIVE IMAGE
+     ========================================= */
+  .rwd-img {
+    width: 100%;           /* Image fills its container width */
+    height: auto;          /* Keeps the original aspect ratio */
+    display: block;        /* Removes inline gap under the image */
+    border-radius: 12px;   /* Soft rounded corners */
+    margin-bottom: 18px;   /* Space below image */
+  }
+
+  /* =========================================
+     RESPONSIVE VIDEO
+     Wrapper holds a fixed 16:9 shape; the
+     video/iframe fills it completely.
+     ========================================= */
+  .video-wrap {
+    width: 100%;           /* Full width of the container */
+    aspect-ratio: 16 / 9;  /* Modern way to lock a 16:9 ratio */
+    background: #000;      /* Fallback color while the video loads */
+    border-radius: 12px;   /* Rounded corners */
+    overflow: hidden;      /* Clips the video to the rounded edges */
+    margin-bottom: 24px;   /* Space below video */
+  }
+
+  .video-wrap video,
+  .video-wrap iframe {
+    width: 100%;           /* Fill the wrapper width */
+    height: 100%;          /* Fill the wrapper height */
+    border: 0;             /* Removes default iframe border */
+    display: block;        /* Removes inline gap */
+  }
+
+  /* =========================================
+     CARDS WRAPPER (MOBILE FIRST)
+     ========================================= */
+  .cards {
+    display: flex;            /* Flex container for the cards */
+    flex-wrap: wrap;          /* Lets cards wrap onto new rows */
+    flex-direction: column;   /* MOBILE FIRST: stack cards vertically */
+    gap: 20px;                /* Even spacing between cards */
+  }
+
+  /* Individual card */
+  .card {
+    background: #fff;         /* White card background */
+    border-radius: 12px;      /* Soft rounded corners */
+    padding: 16px;            /* Inner spacing */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08); /* Subtle depth */
+    margin: 20px auto; /* 20px top/bottom, auto left/right = centered */
+        
+  }
+
+  /* =========================================
+     BREAKPOINT 1: TABLET (600px and up)
+     ========================================= */
+  @media (min-width: 600px) {
+    body { background: #347bff; }   /* Confirms the tablet breakpoint is active */
+
+    .cards { flex-direction: row; } /* Switch from stacked to side-by-side */
+
+    .card { width: 48%;}           /* ~2 cards per row (48% leaves room for the gap) */
+  }
+
+  /* =========================================
+     BREAKPOINT 2: DESKTOP (900px and up)
+     ========================================= */
+  @media (min-width: 900px) {
+    body { background: #2eff2e; }   /* Confirms the desktop breakpoint is active */
+
+    .card { width: 30%;}           /* ~3 cards per row (30% leaves room for the gap) */
+  }
+
+  /* =========================================
+     BREAKPOINT 3: LARGE DESKTOP (1200px and up)
+     ========================================= */
+  @media (min-width: 1200px) {
+    body { background: #ee3f99; }   /* Confirms the large-desktop breakpoint is active */
+
+    .container { padding: 28px; }   /* More breathing room on big screens */
+
+    .card { width: 22%;}           /* ~4 cards per row (22% leaves room for the gap) */
+  }
